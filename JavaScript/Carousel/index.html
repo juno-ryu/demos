@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Carousel JS</title>
+  <link href="./carousel.css" rel="stylesheet">
+  <script src="./carousel.min.js"></script>
+
+</head>
+<style>
+  .controller-wrap {
+    width: 800px;
+    margin: 0 auto;
+    display: inline-blick;
+    text-align: center;
+    padding-bottom: 30px;
+  }
+
+  .motion-Controll-wrap {
+    width: 100%;
+  }
+
+  #carousel-banner {
+    width: 800px;
+    margin: 0 auto;
+  }
+
+  .btn {
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    cursor: pointer;
+    margin-right: .75rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  }
+
+  .btn-success {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+
+  .btn-default {
+    color: #fff;
+    background-color: #5a6268;
+    border-color: #545b62;
+  }
+
+  hr {
+    border-color: #fcfcfc;
+    opacity: 0.5;
+  }
+</style>
+<div class="controller-wrap">
+
+</div>
+
+<body>
+  <div class="carousel" id="carousel-banner">
+    <div class="carousel-wrapper">
+      <div class="carousel-item">
+        <img src="./images/20190808_133759.png">
+      </div>
+      <div class="carousel-item">
+        <img src="./images/20190808_133645.png">
+      </div>
+      <div class="carousel-item">
+        <img src="./images/20190808_133836.png">
+      </div>
+      <div class="carousel-item">
+        <img src="./images/20190808_133850.png">
+      </div>
+    </div>
+    <div class="navi-wrapper"></div>
+  </div>
+
+
+  <script>
+    var defaultSetting = {
+      CarouselMotion: 'default',
+      naviStyle: 'dot',
+      naviPosition: 'bottom',
+      autoMove: true,
+      autoMoveTime: 2000
+    }
+    if (localStorage.getItem('defaultSetting')) {
+      defaultSetting = JSON.parse(localStorage.getItem('defaultSetting'));
+      var CarouselMotion = '';
+      CarouselMotion += defaultSetting.CarouselMotion == 'default' ? '<div class="btn btn-success" data-onoff="1" data-motions="default">default ON</div>' : '<div class="btn btn-default" data-onoff="0" data-motions="default">default OFF</div>';
+      CarouselMotion += defaultSetting.CarouselMotion == 'slide' ? '<div class="btn btn-success" data-onoff="1" data-motions="slide">slide ON</div>' : '<div class="btn btn-default" data-onoff="0" data-motions="slide">slide OFF</div>';
+      CarouselMotion += defaultSetting.CarouselMotion == 'prev' ? '<div class="btn btn-success" data-onoff="1" data-motions="prev">prev ON</div>' : '<div class="btn btn-default" data-onoff="0" data-motions="prev">prev OFF</div>';
+      CarouselMotion += defaultSetting.CarouselMotion == 'fade' ? '<div class="btn btn-success" data-onoff="1" data-motions="fade">fade ON</div>' : '<div class="btn btn-default" data-onoff="0" data-motions="fade">fade OFF</div>';
+      var autoMove = '';
+      autoMove += defaultSetting.autoMove == false ? '<div class="btn btn-default" id="automove" data-auto="0">AutoMove OFF</div>' : '<div class="btn btn-success" id="automove" data-auto="1">AutoMove ON</div>';
+      var naviStyle = '';
+      naviStyle += defaultSetting.naviStyle == 'dot' ? '<div class="btn btn-default" id="navastyle" data-navi="dot">Navi Style - Dot</div>' : '<div class="btn btn-success" id="navastyle" data-navi="arrow">Navi Style - Arrow</div>'
+      var naviPosition = '';
+      naviPosition += defaultSetting.naviPosition == 'bottom' ? '<div class="btn btn-success" data-position="bottom">bottom ON</div>' : '<div class="btn btn-default" data-position="bottom">bottom OFF</div>';
+      naviPosition += defaultSetting.naviPosition == 'top' ? '<div class="btn btn-success" data-position="top">top ON</div>' : '<div class="btn btn-default" data-position="top">top OFF</div>';
+      naviPosition += defaultSetting.naviPosition == 'left' ? '<div class="btn btn-success" data-position="left">left ON</div>' : '<div class="btn btn-default" data-position="left">left OFF</div>';
+      naviPosition += defaultSetting.naviPosition == 'right' ? '<div class="btn btn-success" data-position="right">right ON</div>' : '<div class="btn btn-default" data-position="right">right OFF</div>';
+
+      var defaultController = '<h1>Demo Carousel.js</h1>' +
+        '<hr>' +
+        '<h3>Carousel-Motions</h3>' +
+        '<div class="motion-Controll-wrap">' +
+        CarouselMotion +
+        '</div>' +
+        '<hr>' +
+        '<h3>Auto-Move && Navi-Style</h3>' +
+        autoMove +
+        naviStyle +
+        '<hr>' +
+        '<h3>Navi-Positions</h3>' +
+        '<div class="position-Controll-wrap">' +
+        naviPosition +
+        '</div>';
+
+    } else {
+      var defaultController = '<h1>Demo Carousel.js</h1>' +
+        '<hr>' +
+        '<h3>Carousel-Motions</h3>' +
+        '<div class="motion-Controll-wrap">' +
+        '<div class="btn btn-success" data-onoff="1" data-motions="default">default ON</div>' +
+        '<div class="btn btn-default" data-onoff="0" data-motions="slide">slide OFF</div>' +
+        '<div class="btn btn-default" data-onoff="0" data-motions="prev">prev OFF</div>' +
+        '<div class="btn btn-default" data-onoff="0" data-motions="fade">fade OFF</div>' +
+        '</div>' +
+        '<hr>' +
+        '<h3>Auto-Move && Navi-Style</h3>' +
+        '<div class="btn btn-default" id="automove" data-auto="0">AutoMove OFF</div>' +
+        '<div class="btn btn-default" id="navastyle" data-navi="dot">Navi Style - Dot</div>' +
+        '<hr>' +
+        '<h3>Navi-Positions</h3>' +
+        '<div class="position-Controll-wrap">' +
+        '<div class="btn btn-success" data-position="bottom">bottom ON</div>' +
+        '<div class="btn btn-default" data-position="top">top OFF</div>' +
+        '<div class="btn btn-default" data-position="left">left OFF</div>' +
+        '<div class="btn btn-default" data-position="right">right OFF</div>' +
+        '</div>';
+    }
+    document.querySelector('.controller-wrap').innerHTML = defaultController;
+
+    var elements = document.querySelector('.motion-Controll-wrap').querySelectorAll('.btn');
+    for (var i = 0; i < elements.length; i++) {
+      elements[i].addEventListener('click', function () {
+        if (!Number(this.getAttribute('data-onoff'))) {
+          elements = document.querySelector('.motion-Controll-wrap').querySelectorAll('.btn');
+          for (var j = 0; j < elements.length; j++) {
+            elements[j].setAttribute('data-onoff', '0');
+            elements[j].setAttribute('class', 'btn btn-default');
+            elements[j].innerText = elements[j].getAttribute('data-motions') + ' OFF';
+          }
+          this.setAttribute('data-onoff', '1');
+          this.setAttribute('class', 'btn btn-success');
+          this.innerText = this.getAttribute('data-motions') + ' ON';
+        }
+        defaultSetting.CarouselMotion = this.getAttribute('data-motions');
+        goHref();
+      });
+    }
+
+    var elements = document.querySelector('#automove');
+    elements.addEventListener('click', function () {
+      if (!Number(this.getAttribute('data-auto'))) {
+        this.setAttribute('data-auto', '1');
+        this.setAttribute('class', 'btn btn-success');
+        this.innerText = 'AutoMove ON';
+        defaultSetting.autoMove = true;
+      } else {
+        this.setAttribute('data-auto', '0');
+        this.setAttribute('class', 'btn btn-default');
+        this.innerText = 'AutoMove OFF';
+        defaultSetting.autoMove = false;
+      }
+      goHref();
+    });
+
+    var elements = document.querySelector('#navastyle');
+    elements.addEventListener('click', function () {
+      if (this.getAttribute('data-navi') == 'arrow') {
+        this.setAttribute('data-navi', 'dot');
+        this.setAttribute('class', 'btn btn-default');
+        this.innerText = 'Navi Style - Dot';
+        defaultSetting.naviStyle = 'dot';
+      } else {
+        this.setAttribute('data-navi', 'arrow');
+        this.setAttribute('class', 'btn btn-success');
+        this.innerText = 'Navi Style - Arrow';
+        defaultSetting.naviStyle = 'arrow';
+      }
+      goHref();
+    });
+
+
+    var elements = document.querySelector('.position-Controll-wrap').querySelectorAll('.btn');
+    for (var i = 0; i < elements.length; i++) {
+      elements[i].addEventListener('click', function () {
+        for (var j = 0; j < elements.length; j++) {
+          elements[j].setAttribute('class', 'btn btn-default');
+          elements[j].innerText = elements[j].getAttribute('data-position') + ' OFF';
+        }
+        this.setAttribute('class', 'btn btn-success');
+        this.innerText = this.getAttribute('data-position') + ' ON';
+
+
+        defaultSetting.naviPosition = this.getAttribute('data-position');
+        goHref();
+      });
+    }
+
+    function goHref() {
+      localStorage.setItem('defaultSetting', JSON.stringify(defaultSetting));
+      location.reload();
+    }
+
+
+
+
+    new Carousel(document.querySelector('#carousel-banner'), defaultSetting);
+  </script>
+</body>
+
+</html>
