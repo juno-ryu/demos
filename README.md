@@ -3,11 +3,15 @@
 # 프로젝트 목록
 
 ## [ Module ]
+### carousel.js
+[Demo   : https://ryujun.github.io/demos/JavaScript/Carousel/](https://ryujun.github.io/demos/JavaScript/Carousel/)<br>
+[Github : https://github.com/RyuJun/Carousel.js](https://github.com/RyuJun/Carousel.js)
+>Carousel.js는 JavaScript es6++ 이상 문법으로 제작되었다. 간편하게 Slide를 이용하도록 제작된 자바스크립트 플러그인 이며, 각종 롤링 배너 관리 제작에 사용 될 수 있다.
 
 ### lotteryScratch.js
 [Demo   : https://ryujun.github.io/demos/JavaScript/lotteryScratch/](https://ryujun.github.io/demos/JavaScript/lotteryScratch/)<br>
 [Github : https://github.com/RyuJun/lotteryScratch](https://github.com/RyuJun/lotteryScratch)
->lotteryScratch.js는 HTML5 canvas를 사용하여 제작되었다. 마치 복권을 긁는 듯한 이벤트를 처리해주는 자바스크립트 라이브러리 이며, 브라우저에서 각종 이벤트 페이지 제작에 사용될 수 있다.
+>lotteryScratch.js는 HTML5 canvas를 사용하여 제작되었다. 마치 복권을 긁는 듯한 이벤트를 처리해주는 자바스크립트 플러그인 이며, 브라우저에서 각종 이벤트 페이지 제작에 사용될 수 있다.
 
 ## [ React ]
 
