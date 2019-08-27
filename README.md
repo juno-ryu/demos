@@ -3,6 +3,12 @@
 # 프로젝트 목록
 
 ## [ Module ]
+### autocomplete.js
+[Demo   : https://ryujun.github.io/demos/JavaScript/AutoComplete](https://ryujun.github.io/demos/JavaScript/AutoComplete/)<br>
+[Github : https://github.com/RyuJun/AutoComplete.js](https://github.com/RyuJun/AutoComplete.js)
+>> AutoComplete.js는 es6++ 문법으로 작성된 input박스 자동완성 module이다. 
+> 초성검색, 중단검색, 전체검색 등을 지원하며 각종 검색 Search Bar 구현에 사용 될 수 있다.
+
 ### carousel.js
 [Demo   : https://ryujun.github.io/demos/JavaScript/Carousel/](https://ryujun.github.io/demos/JavaScript/Carousel/)<br>
 [Github : https://github.com/RyuJun/Carousel.js](https://github.com/RyuJun/Carousel.js)
