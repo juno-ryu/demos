@@ -1,4 +1,4 @@
-> 진행 했던 작업들의 데모 페이지들을 모아 합쳐놓은 공간
+> 작업 데모 페이지 저장소
 
 # 프로젝트 목록
 [Demo Page : https://ryujun.github.io/demos/](https://ryujun.github.io/demos/)
