@@ -1,12 +1,13 @@
 > 작업 데모 페이지 저장소
 
 # 프로젝트 목록
-[Demo Page : https://ryujun.github.io/demos/](https://ryujun.github.io/demos/)
+[Demo Page : https://juno-ryu.github.io/demos/(https://juno-ryu.github.io/demos/))
+
 
 ## [ Module ]
 ### autocomplete.js
-[Demo   : https://ryujun.github.io/demos/JavaScript/AutoComplete](https://ryujun.github.io/demos/JavaScript/AutoComplete/)<br>
-[Github : https://github.com/RyuJun/AutoComplete.js](https://github.com/RyuJun/AutoComplete.js)
+[Demo   : https://juno-ryu.github.io/demos/JavaScript/AutoComplete](https://juno-ryu.github.io/demos/JavaScript/AutoComplete/)<br>
+[Github : https://github.com/juno-ryu/AutoComplete.js](https://github.com/juno-ryu/AutoComplete.js)
 > AutoComplete.js는 es6++ 문법으로 작성된 input박스 자동완성 module이다. 
 > 초성검색, 중단검색, 전체검색 등을 지원하며 각종 검색 Search Bar 구현에 사용 될 수 있다.
 
