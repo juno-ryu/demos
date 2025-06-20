@@ -1,7 +1,7 @@
 > 작업 데모 페이지 저장소
 
 # 프로젝트 목록
-[Demo Page : https://juno-ryu.github.io/demos/(https://juno-ryu.github.io/demos/))
+[Demo Page : https://juno-ryu.github.io/demos](https://juno-ryu.github.io/demos)
 
 
 ## [ Module ]
